@@ -1,15 +1,18 @@
 // product.component.ts
 import { Component, OnInit } from '@angular/core';
 import { ServiceProduct, Product } from '../serviceprodut';
-// import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-product',
   templateUrl: './product.html',
   styleUrls: ['./product.scss'],
-  imports: [FormsModule]
+  standalone: true,
+  imports: [FormsModule, CommonModule, RouterLink]
 })
+
 export class ProductComponent implements OnInit {
 
   products: Product[] = [];
