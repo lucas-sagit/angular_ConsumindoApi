@@ -1,4 +1,4 @@
-<h2>Cadastro de Produto</h2>
+ <h2>Cadastro de Produto</h2>
 
 <form (ngSubmit)="criarOuAtualizarProduto()" #formProduto="ngForm">
 
@@ -49,7 +49,7 @@
       <td>{{ p.empresa }}</td>
       <td>
         <button (click)="editarProduto(p)">Editar</button>
-        <button (click)="deletarProduto(p.cod)">Excluir</button>
+        <button (click)="deletarProduto(p.id)">Excluir</button>
       </td>
     </tr>
   </tbody>

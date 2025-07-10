@@ -1,25 +1,25 @@
 // product.component.ts
 import { Component, OnInit } from '@angular/core';
-import { ServiceProduct, Product } from '../serviceprodut';
+import { ProductService } from '../product.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { Product } from '../product.interface';
 
 @Component({
   selector: 'app-product',
   templateUrl: './product.html',
   styleUrls: ['./product.scss'],
   standalone: true,
-  imports: [FormsModule, CommonModule, RouterLink]
+  imports: [FormsModule, CommonModule]
 })
 
 export class ProductComponent implements OnInit {
 
   products: Product[] = [];
-  product: Product = { pdv: '', cod: '', chave: '', empresa: '' };
+  product: Product = { pdv: '', cod: '', chave: '', empresa: '', id: '' };
   isEditing = false;
 
-  constructor(private service: ServiceProduct) { }
+  constructor(private productService: ProductService) {}
 
   ngOnInit(): void {
     this.listarProdutos();
@@ -29,19 +29,19 @@ export class ProductComponent implements OnInit {
   }
 
   listarProdutos(): void {
-    this.service.listarProdutos().subscribe((res: Product[]) => {
+    this.productService.listarProdutos().subscribe((res: Product[]) => {
       this.products = res;
     });
   }
 
   criarOuAtualizarProduto(): void {
     if (this.isEditing) {
-      this.service.atualizarProduto(this.product.cod, this.product).subscribe(() => {
+      this.productService.atualizarProduto(this.product.cod, this.product).subscribe(() => {
         this.resetarFormulario();
         this.listarProdutos();
       });
     } else {
-      this.service.criarProduto(this.product).subscribe(() => {
+      this.productService.criarProduto(this.product).subscribe(() => {
         this.resetarFormulario();
         this.listarProdutos();
       });
@@ -53,16 +53,16 @@ export class ProductComponent implements OnInit {
     this.isEditing = true;
   }
 
-  deletarProduto(cod: string): void {
+  deletarProduto(id: string): void {
     if (confirm('Deseja realmente excluir este produto?')) {
-      this.service.deletarProduto(cod).subscribe(() => {
+      this.productService.deletarProduto(id).subscribe(() => {
         this.listarProdutos();
       });
     }
   }
 
   resetarFormulario(): void {
-    this.product = { pdv: '', cod: '', chave: '', empresa: '' };
+    this.product = { pdv: '', cod: '', chave: '', empresa: '', id: "" };
     this.isEditing = false;
   }
 }
