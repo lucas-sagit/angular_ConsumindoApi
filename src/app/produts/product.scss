@@ -1,3 +1,38 @@
+.goBack {
+  position: fixed; // Fixa no topo/esquerda, mesmo rolando a página
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1976d2; // Azul Material padrão
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    mat-icon {
+      font-size: 24px;
+    }
+
+    &:hover {
+      background-color: #1565c0;
+    }
+
+    &:active {
+      background-color: #0d47a1;
+    }
+  }
+}
+
+
 .all-container {
   max-width: 1000px; // limite para o conteúdo ficar centralizado
   margin: 2rem auto; // centraliza vertical e horizontalmente
