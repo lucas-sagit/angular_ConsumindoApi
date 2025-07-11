@@ -1,56 +1,60 @@
- <h2>Cadastro de Produto</h2>
+<div class="all-container">
+  <div class="page-container">
+    <h2>Cadastro de Produto</h2>
 
-<form (ngSubmit)="criarOuAtualizarProduto()" #formProduto="ngForm">
+    <form (ngSubmit)="criarOuAtualizarProduto()" #formProduto="ngForm">
 
-  <div>
-    <label for="pdv">PDV:</label>
-    <input type="text" id="pdv" name="pdv" [(ngModel)]="product.pdv" required />
+      <div>
+        <label for="pdv">PDV:</label>
+        <input type="text" id="pdv" name="pdv" [(ngModel)]="product.pdv" required />
+      </div>
+
+      <div>
+        <label for="cod">Código:</label>
+        <input type="text" id="cod" name="cod" [(ngModel)]="product.cod" required [readonly]="isEditing" />
+      </div>
+
+      <div>
+        <label for="chave">Chave:</label>
+        <input type="text" id="chave" name="chave" [(ngModel)]="product.chave" required />
+      </div>
+
+      <div>
+        <label for="empresa">Empresa:</label>
+        <input type="text" id="empresa" name="empresa" [(ngModel)]="product.empresa" required />
+      </div>
+
+      <button type="submit">{{ isEditing ? 'Atualizar' : 'Salvar' }} Produto</button>
+      <button type="button" *ngIf="isEditing" (click)="resetarFormulario()">Cancelar</button>
+
+    </form>
   </div>
 
-  <div>
-    <label for="cod">Código:</label>
-    <input type="text" id="cod" name="cod" [(ngModel)]="product.cod" required [readonly]="isEditing" />
+  <div class="page2-container">
+    <h3>Lista de Produtos</h3>
+
+    <table border="1" cellspacing="0" cellpadding="5">
+      <thead>
+        <tr>
+          <th>PDV</th>
+          <th>Código</th>
+          <th>Chave</th>
+          <th>Empresa</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let p of products">
+          <td>{{ p.pdv }}</td>
+          <td>{{ p.cod }}</td>
+          <td>{{ p.chave }}</td>
+          <td>{{ p.empresa }}</td>
+          <td>
+            <button (click)="editarProduto(p)">Editar</button>
+            <button (click)="deletarProduto(p.id)">Excluir</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-
-  <div>
-    <label for="chave">Chave:</label>
-    <input type="text" id="chave" name="chave" [(ngModel)]="product.chave" required />
-  </div>
-
-  <div>
-    <label for="empresa">Empresa:</label>
-    <input type="text" id="empresa" name="empresa" [(ngModel)]="product.empresa" required />
-  </div>
-
-  <button type="submit">{{ isEditing ? 'Atualizar' : 'Salvar' }} Produto</button>
-  <button type="button" *ngIf="isEditing" (click)="resetarFormulario()">Cancelar</button>
-
-</form>
-
-<hr />
-
-<h3>Lista de Produtos</h3>
-
-<table border="1" cellspacing="0" cellpadding="5">
-  <thead>
-    <tr>
-      <th>PDV</th>
-      <th>Código</th>
-      <th>Chave</th>
-      <th>Empresa</th>
-      <th>Ações</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let p of products">
-      <td>{{ p.pdv }}</td>
-      <td>{{ p.cod }}</td>
-      <td>{{ p.chave }}</td>
-      <td>{{ p.empresa }}</td>
-      <td>
-        <button (click)="editarProduto(p)">Editar</button>
-        <button (click)="deletarProduto(p.id)">Excluir</button>
-      </td>
-    </tr>
-  </tbody>
-</table>
+</div>
