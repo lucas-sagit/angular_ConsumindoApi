@@ -1,0 +1,142 @@
+.goBack {
+  position: relative;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    text-decoration: none;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+
+    mat-icon {
+      font-size: 24px;
+      color: #333;
+    }
+
+    &:hover {
+      background-color: #007bff;
+      transform: scale(1.05);
+      cursor: pointer;
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+
+  @media (max-width: 600px) {
+    padding: 0.5rem;
+
+    a {
+      width: 36px;
+      height: 36px;
+
+      mat-icon {
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+.all-page {
+  max-width: 960px; // limite para o conteúdo ficar centralizado
+  margin: 2rem auto; // centraliza vertical e horizontalmente
+  padding: 2rem;
+  background-color: #e0dcdc; // cor de fundo do container
+  border-radius: 12px;
+}
+
+.instruction-card {
+  background-color: #f9fafc;
+  padding: 1.5rem;
+  border-left: 4px solid #007bff;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+  margin-bottom: 1.5rem;
+
+  h2 {
+    font-size: 1.2rem;
+    color: #007bff;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+
+    mat-icon {
+      margin-right: 0.5rem;
+    }
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      padding: 0px 0px 0px 40px;
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+      color: #333;
+
+      strong {
+        color: #000;
+      }
+    }
+  }
+}
+
+.link-update {
+  a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    padding: 0.8rem 1.4rem;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+
+    mat-icon {
+      font-size: 20px;
+    }
+
+    &:hover {
+      background-color: #0056b3;
+      transform: translateY(-2px);
+    }
+
+    &:active {
+      transform: scale(0.98);
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .instruction-card {
+    padding: 1rem;
+
+    h2 {
+      font-size: 1rem;
+    }
+
+    ul li {
+      font-size: 0.95rem;
+    }
+  }
+
+  .link-update a {
+    padding: 0.6rem 1rem;
+    font-size: 0.95rem;
+
+    mat-icon {
+      font-size: 18px;
+    }
+  }
+}

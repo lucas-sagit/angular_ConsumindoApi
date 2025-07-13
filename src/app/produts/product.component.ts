@@ -4,13 +4,16 @@ import { ProductService } from '../product.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Product } from '../product.interface';
+import { Location } from '@angular/common';
+import { MatIcon, MatIconModule } from '@angular/material/icon';
+
 
 @Component({
   selector: 'app-product',
   templateUrl: './product.html',
   styleUrls: ['./product.scss'],
   standalone: true,
-  imports: [FormsModule, CommonModule]
+  imports: [FormsModule, CommonModule, MatIcon]
 })
 
 export class ProductComponent implements OnInit {
@@ -19,7 +22,7 @@ export class ProductComponent implements OnInit {
   product: Product = { pdv: '', cod: '', chave: '', empresa: '', id: '' };
   isEditing = false;
 
-  constructor(private productService: ProductService) {}
+  constructor(private productService: ProductService, private location: Location) {}
 
   ngOnInit(): void {
     this.listarProdutos();
@@ -65,4 +68,8 @@ export class ProductComponent implements OnInit {
     this.product = { pdv: '', cod: '', chave: '', empresa: '', id: "" };
     this.isEditing = false;
   }
+
+      goBack(): void {
+      this.location.back();
+    }
 }

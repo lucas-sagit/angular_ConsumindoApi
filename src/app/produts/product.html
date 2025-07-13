@@ -1,4 +1,11 @@
 <div class="all-container">
+
+  <div class="goBack">
+    <a href="/home" (click)="goBack()">
+        <mat-icon>arrow_back</mat-icon>
+    </a>
+  </div>
+
   <div class="page-container">
     <h2>Cadastro de Produto</h2>
 
@@ -33,7 +40,7 @@
   <div class="page2-container">
     <h3>Lista de Produtos</h3>
 
-    <table border="1" cellspacing="0" cellpadding="5">
+    <table>
       <thead>
         <tr>
           <th>PDV</th>
