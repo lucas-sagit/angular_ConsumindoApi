@@ -4,15 +4,25 @@ import { ProductService } from '../product.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Product } from '../product.interface';
+<<<<<<< HEAD
 import { MatIconModule } from '@angular/material/icon';
 import { Location } from '@angular/common';
+=======
+import { Location } from '@angular/common';
+import { MatIcon, MatIconModule } from '@angular/material/icon';
+
+>>>>>>> b2873cfbeafe87f19cedab74bbb7c85116cd47c0
 
 @Component({
   selector: 'app-product',
   templateUrl: './product.html',
   styleUrls: ['./product.scss'],
   standalone: true,
+<<<<<<< HEAD
   imports: [FormsModule, CommonModule, MatIconModule]
+=======
+  imports: [FormsModule, CommonModule, MatIcon]
+>>>>>>> b2873cfbeafe87f19cedab74bbb7c85116cd47c0
 })
 
 export class ProductComponent implements OnInit {
@@ -68,7 +78,13 @@ export class ProductComponent implements OnInit {
     this.isEditing = false;
   }
 
+<<<<<<< HEAD
   back(): void {
   this.location.back();
   }
+=======
+      goBack(): void {
+      this.location.back();
+    }
+>>>>>>> b2873cfbeafe87f19cedab74bbb7c85116cd47c0
 }
