@@ -79,13 +79,7 @@ export class ProductComponent implements OnInit {
     this.isEditing = false;
   }
 
-<<<<<<< HEAD
-  back(): void {
-  this.location.back();
-  }
-=======
       goBack(): void {
       this.location.back();
     }
->>>>>>> b2873cfbeafe87f19cedab74bbb7c85116cd47c0
 }
