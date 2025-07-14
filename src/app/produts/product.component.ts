@@ -38,6 +38,7 @@ export class ProductComponent implements OnInit {
   }
 
   criarOuAtualizarProduto(): void {
+    console.log('Produto a enviar:', this.product);
     if (this.isEditing) {
       this.productService.atualizarProduto(this.product.cod, this.product).subscribe(() => {
         this.resetarFormulario();
