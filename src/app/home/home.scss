@@ -43,21 +43,13 @@
 .introduction {
   flex: 1;
   min-width: 300px;
-  display: flex;
-  justify-content: center;
-  padding: 20px;
 
   p {
     font-size: 1.1rem;
     line-height: 1.6;
     color: #333;
-    text-align: justify; // Ou "left" se quiser alinhado à esquerda
-    max-width: 800px;
-    margin: 0 auto;
-    white-space: normal; // Garante que texto quebre automaticamente conforme largura
   }
 }
-
 
 .intro-image {
   flex: 1;
@@ -69,52 +61,7 @@
     max-width: 100%;
     height: auto;
     border-radius: 12px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
   }
 }
 
-.footer {
-  a {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background-color: #007bff;
-    color: #fff;
-    text-decoration: none;
-    padding: 0.8rem 1.4rem;
-    border-radius: 6px;
-    font-weight: 500;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-
-    mat-icon {
-      font-size: 20px;
-    }
-
-    &:hover {
-      background-color: #0056b3;
-      transform: translateY(-2px);
-    }
-
-    &:active {
-      transform: scale(0.98);
-    }
-  }
-}
-
-.footer {
-  background-color: #20232a;
-  color: #ffffff;
-  text-align: center;
-  padding: 20px;
-  font-size: 0.9rem;
-  margin-top: 40px;
-
-  .footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  p {
-    margin: 5px 0;
-  }
-}
